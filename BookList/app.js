@@ -20,7 +20,6 @@ UI.prototype.addbooktolist=function(book){
   booktable.appendChild(row);
 }
 
-
 UI.prototype.clearFields=function(){
   document.getElementById('title').value='';
   document.getElementById('author').value='';
@@ -34,7 +33,7 @@ UI.prototype.showAlert=function(message,classname){
 
   const tmes=document.createTextNode(message);
   div.appendChild(tmes);
-  // get paret 
+  // get parent 
   const parent=document.querySelector('.container');
 
   // get before element
@@ -49,16 +48,13 @@ UI.prototype.showAlert=function(message,classname){
 
 
 document.getElementById('book-from').addEventListener('submit',function(e){
-  
   console.log('running');
   const title=document.getElementById('title').value;
   const author=document.getElementById('author').value;
   const isbn=document.getElementById('isbn').value;
 
   console.log(title,author,isbn);
-
   const bookobj = new Book(title,author,isbn);
-  
   const ui=new UI();
 
   if(title==''||author==''||isbn==''){
@@ -70,7 +66,23 @@ document.getElementById('book-from').addEventListener('submit',function(e){
 
   //clear filed
   ui.clearFields();
-  
+  e.preventDefault();
+});
+
+
+
+// Event Listener for delete
+document.getElementById('book-list').addEventListener('click', function(e){
+
+  // Instantiate UI
+  const ui = new UI();
+
+  // Delete book
+  ui.deleteBook(e.target);
+
+  // Show message
+  ui.showAlert('Book Removed!', 'success');
+
   e.preventDefault();
 });
 

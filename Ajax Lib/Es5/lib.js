@@ -1,7 +1,6 @@
 function LibraryHttp() {
     this.http=new XMLHttpRequest();
 }
-
 // make a get request
 LibraryHttp.prototype.get=function (url,callback) {
     this.http.open('GET',url,true);

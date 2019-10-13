@@ -1,27 +1,18 @@
-lib=new  LibraryHttp();
-url='https://jsonplaceholder.typicode.com/posts';
-// lib.get('https://jsonplaceholder.typicode.com/posts',function (err,serverResponse) {
-//     if(err){
-//         console.log(err);
-//     }
-//     else {
-//         console.log(serverResponse);
-//     }
-// });
+lib=new LibraryHttp;
+url='https://jsonplaceholder.typicode.com/users';
+lib.get(url)
+    .then(data=>console.log(data))
+    .catch(err=>console.log(err));\
 
-//POST
-const data ={
-    title:'custom title',
-    body:' this is the body of '
-};
+g
 
-lib.post(url,data,function (err,resp) {
-    if(err){
+lib.delete(url+'/1',{
+    name:'rhythm',
+    hobbies:'music'
+})
+    .then(function (res){
+        console.log(res);
+    })
+    .catch(function (err) {
         console.log(err);
-    }else{
-        console.log(resp);
-    }
-});
-
-
-
+    });

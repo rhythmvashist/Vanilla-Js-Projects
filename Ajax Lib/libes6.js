@@ -48,7 +48,7 @@ class LibraryHttp{
                 }
             })
                 .then(res=>res.json())
-                .then(data=>resolve("The user is deleted !! "))
+                .then(data=>resolve("The user is deleted !!"))
                 .catch(err=>reject(err))
         })
     }

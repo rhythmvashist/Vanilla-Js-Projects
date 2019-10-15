@@ -25,3 +25,4 @@ const searchUser=document.getElementById('searchuser').addEventListener('keyup',
         ui.clearProfile();
     }
 });
+

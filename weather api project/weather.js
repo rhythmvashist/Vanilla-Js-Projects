@@ -4,20 +4,22 @@ class weather{
         this.city=city;
         //this.country='Canada';
     }
+    changeLocation(city){
+        this.city=city;
 
-
-    async getweather(){
+    }
+    async getWeather(){
 
         const  response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.city}&appid=${this.key}`);
-        const weatherinfo  =await  response.json();
+        const weatherInfo  =await  response.json();
 
         //
         //
         //
-        // return weatherinfo
+        // return weatherInfo
         return {
-            weather: weatherinfo.weather,
-            mainTemp:weatherinfo.main,
+            weather: weatherInfo.weather,
+            mainTemp:weatherInfo.main,
         }
     }
 }
